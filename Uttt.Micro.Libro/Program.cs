@@ -35,12 +35,14 @@ builder.Services.AddCustonServices(builder.Configuration);
 var app = builder.Build();
 
 // Swagger solo en entorno de desarrollo
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-    app.MapOpenApi(); // OpenAPI personalizado
-}
+//if (app.Environment.IsDevelopment())
+//{
+
+//}
+
+app.UseSwagger();
+app.UseSwaggerUI();
+app.MapOpenApi(); // OpenAPI personalizado
 
 // Habilitar CORS
 app.UseCors("PermitirReact");
