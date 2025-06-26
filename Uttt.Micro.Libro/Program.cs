@@ -22,7 +22,7 @@ builder.Services.AddCors(options =>
     {
         policy.WithOrigins(
     "http://localhost:3001",
-    "https://localhost:3001"
+    "https://libreria-ashen.vercel.app"
 ) // URL de tu aplicación React
               .AllowAnyHeader()
               .AllowAnyMethod();
