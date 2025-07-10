@@ -35,10 +35,10 @@ builder.Services.AddCustonServices(builder.Configuration);
 var app = builder.Build();
 
 // Swagger solo en entorno de desarrollo
-//if (app.Environment.IsDevelopment())
-//{
+if (app.Environment.IsDevelopment())
+{
 
-//}
+}
 
 app.UseSwagger();
 app.UseSwaggerUI();
@@ -54,4 +54,5 @@ app.MapControllers();
 var hostname = System.Net.Dns.GetHostName();
 Console.WriteLine($"Iniciando microservicio desde instancia: {hostname}");
 
-app.Run("http://0.0.0.0:8080");
+//app.Run("http://0.0.0.0:8080"); //para el Loud_Balancer
+app.Run();
