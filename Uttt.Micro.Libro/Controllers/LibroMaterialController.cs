@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 using Uttt.Micro.Libro.Aplicacion;
@@ -6,6 +7,7 @@ using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 namespace Uttt.Micro.Libro.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class LibroMaterialController : ControllerBase
@@ -57,6 +59,12 @@ namespace Uttt.Micro.Libro.Controllers
         {
             var hostname = System.Net.Dns.GetHostName();
             return Ok($"📦 Respuesta desde instancia: {hostname}");
+        }
+
+        [HttpGet("protegido")]
+        public IActionResult Protegido()
+        {
+            return Ok("Tienes acceso con un token válido.");
         }
 
 
